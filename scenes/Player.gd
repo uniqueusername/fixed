@@ -9,10 +9,12 @@ var vel = Vector2()
 var grace = MAX_GRACE
 
 func _ready():
-	pass
+	global_position.x = global.playerx
+	global_position.y = global.playery
 
 func _process(delta):
-	pass
+	global.playerx = global_position.x
+	global.playery = global_position.y
 
 func _physics_process(delta):
 	vel.y += delta * GRAV

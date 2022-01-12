@@ -30,11 +30,14 @@ func _process(delta):
 	if animating:
 		var complete = true # true by end of loop if animation is complete
 		for i in get_point_count():
+			var temp_complete = move_point(i, final_points[i], delta)
 			complete = move_point(i, final_points[i], delta)
 	
 		# if animation is complete, switch scenes
 		if complete:
 			get_tree().change_scene(BACK_PATH)
+			
+	get_node("StaticBody2D/CollisionPolygon2D").set_polygon(points)
 
 func config_line():
 	round_precision = 0

@@ -2,7 +2,7 @@ extends Line2D
 
 const TICK = 0.2 # moves by 100/TICK percent each frame
 const TOLERANCE = TICK * 3 # margin before switching to final level
-const TRANS_PATH = "res://scenes/LevelAB.tscn" # path to transition level
+const TRANS_PATH = "res://scenes/lvlBC.tscn" # path to transition level
 
 var point_container
 

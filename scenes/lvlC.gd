@@ -2,7 +2,7 @@ extends Line2D
 
 const TICK = 0.2 # moves by 100/TICK percent each frame
 const TOLERANCE = TICK * 3 # margin before switching
-const FINAL_PATH = "res://scenes/LevelB.tscn" # path to previous state
+const FINAL_PATH = "res://scenes/lvlC.tscn"
 
 var final_level # final state level instance
 var final_points = [] # array of final point positions
@@ -16,19 +16,19 @@ func _ready():
 	config_line()
 	trace()
 	
-	# load next level
 	final_level = load(FINAL_PATH)
 	final_level = final_level.instance()
-	animating = true
+	animating = false
 	
 	for point in final_level.get_node("Points").get_children():
 		final_points.append(point.position)
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"): animating = true
+	
 	if animating:
 		var complete = true # true by end of loop if animation is complete
 		for i in get_point_count():
-			var temp_complete = move_point(i, final_points[i], delta)
 			complete = move_point(i, final_points[i], delta)
 	
 		# if animation is complete, switch scenes
