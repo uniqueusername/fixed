@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "tree-sitter-gdscript": "^1.2.1",
+    "tree-sitter-godot-resource": "^0.3.2"
+  }
+}
